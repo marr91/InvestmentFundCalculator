@@ -25,9 +25,9 @@ public class InvestmentFundCalculator {
      * Some part of monetaryAmount can be unallocated eg. when there are no given investmentFunds of some type.
      * Unallocated amount is returned in 'InvestmentFundAllocation' object with null investmentFund.
      *
-     * @param monetaryAmount amount of money to allocate
-     * @param investmentFunds given list of investment funds
-     * @param investmentStyle given investment style
+     * @param monetaryAmount amount of money to allocate. Must be greater or equal 0
+     * @param investmentFunds given list of investment funds. Cannot be null
+     * @param investmentStyle given investment style. Cannot be null
      * @return calculated allocations
      */
     public List<InvestmentFundAllocation> calculateFundAllocations(int monetaryAmount,
