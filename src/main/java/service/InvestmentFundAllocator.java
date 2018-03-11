@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
-public class InvestmentFundCalculator {
+public class InvestmentFundAllocator {
 
     /**
      * Calculates money allocations per given investment funds. Percentage of money allocated to fund of some type is defined in
