@@ -14,7 +14,7 @@ import java.util.Objects;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class InvestmentFundAllocationsCalculatorTest {
+public class InvestmentFundAllocatorTest {
 
     private static final InvestmentFund POLISH_FUND_1 = new InvestmentFund(1, "Fundusz Polski 1", InvestmentFundType.POLISH);
     private static final InvestmentFund POLISH_FUND_2 = new InvestmentFund(2, "Fundusz Polski 2", InvestmentFundType.POLISH);
@@ -24,11 +24,11 @@ public class InvestmentFundAllocationsCalculatorTest {
     private static final InvestmentFund FOREIGN_FUND_3 = new InvestmentFund(6, "Fundusz Zagraniczny 3", InvestmentFundType.FOREIGN);
     private static final InvestmentFund MONETARY_FUND_1 = new InvestmentFund(7, "Fundusz Pieniezny 1", InvestmentFundType.MONETARY);
 
-    private InvestmentFundAllocationsCalculator investmentFundAllocationsCalculator;
+    private InvestmentFundAllocator investmentFundAllocator;
 
     @Before
     public void setup() {
-        investmentFundAllocationsCalculator = new InvestmentFundAllocationsCalculator();
+        investmentFundAllocator = new InvestmentFundAllocator();
     }
 
     @Test
@@ -40,7 +40,7 @@ public class InvestmentFundAllocationsCalculatorTest {
                 FOREIGN_FUND_3, MONETARY_FUND_1);
 
         // when
-        List<InvestmentFundAllocation> allocations = investmentFundAllocationsCalculator
+        List<InvestmentFundAllocation> allocations = investmentFundAllocator
                 .calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
 
         // then
@@ -63,7 +63,7 @@ public class InvestmentFundAllocationsCalculatorTest {
                 FOREIGN_FUND_3, MONETARY_FUND_1);
 
         // when
-        List<InvestmentFundAllocation> allocations = investmentFundAllocationsCalculator
+        List<InvestmentFundAllocation> allocations = investmentFundAllocator
                 .calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
 
         // then
@@ -86,7 +86,7 @@ public class InvestmentFundAllocationsCalculatorTest {
                 FOREIGN_FUND_3, MONETARY_FUND_1);
 
         // when
-        List<InvestmentFundAllocation> allocations = investmentFundAllocationsCalculator
+        List<InvestmentFundAllocation> allocations = investmentFundAllocator
                 .calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
 
         // then
@@ -109,7 +109,7 @@ public class InvestmentFundAllocationsCalculatorTest {
                 FOREIGN_FUND_3);
 
         // when
-        List<InvestmentFundAllocation> allocations = investmentFundAllocationsCalculator
+        List<InvestmentFundAllocation> allocations = investmentFundAllocator
                 .calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
 
         // then
@@ -131,7 +131,7 @@ public class InvestmentFundAllocationsCalculatorTest {
         List<InvestmentFund> investmentFunds = ImmutableList.of(POLISH_FUND_1, FOREIGN_FUND_1, MONETARY_FUND_1);
 
         // when
-        List<InvestmentFundAllocation> allocations = investmentFundAllocationsCalculator
+        List<InvestmentFundAllocation> allocations = investmentFundAllocator
                 .calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
 
         // then
@@ -146,7 +146,7 @@ public class InvestmentFundAllocationsCalculatorTest {
         List<InvestmentFund> investmentFunds = ImmutableList.of();
 
         // when
-        List<InvestmentFundAllocation> allocations = investmentFundAllocationsCalculator
+        List<InvestmentFundAllocation> allocations = investmentFundAllocator
                 .calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
 
         // then
@@ -165,7 +165,7 @@ public class InvestmentFundAllocationsCalculatorTest {
         List<InvestmentFund> investmentFunds = ImmutableList.of();
 
         // when + then
-        investmentFundAllocationsCalculator.calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
+        investmentFundAllocator.calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
     }
 
     @Test(expected = NullPointerException.class)
@@ -176,7 +176,7 @@ public class InvestmentFundAllocationsCalculatorTest {
         List<InvestmentFund> investmentFunds = ImmutableList.of(POLISH_FUND_1);
 
         // when + then
-        investmentFundAllocationsCalculator.calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
+        investmentFundAllocator.calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
     }
 
     @Test(expected = NullPointerException.class)
@@ -187,7 +187,7 @@ public class InvestmentFundAllocationsCalculatorTest {
         List<InvestmentFund> investmentFunds = null;
 
         // when + then
-        investmentFundAllocationsCalculator.calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
+        investmentFundAllocator.calculateFundAllocations(totalAmountToAllocate, investmentFunds, investmentStyle);
     }
 
     private static void assertAllocatedAmount(List<InvestmentFundAllocation> allocations, int totalAmountToAllocate) {

@@ -28,6 +28,7 @@ public class InvestmentFundAllocator {
      * @param monetaryAmount amount of money to allocate. Must be greater or equal 0
      * @param investmentFunds given list of investment funds. Cannot be null
      * @param investmentStyle given investment style. Cannot be null
+     *
      * @return calculated allocations
      */
     public List<InvestmentFundAllocation> calculateFundAllocations(int monetaryAmount,
