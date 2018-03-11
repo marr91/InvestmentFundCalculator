@@ -43,7 +43,7 @@ public class InvestmentFundCalculator {
         int allocatedAmount = 0;
 
         for (InvestmentFundType investmentFundType : InvestmentFundType.values()) {
-            double fundDistributionPercentage = fundsDistributionPercentages.get(investmentFundType);
+            double fundDistributionPercentage = fundsDistributionPercentages.getOrDefault(investmentFundType, 0.0);
             List<InvestmentFund> investmentFundsWithType = filterInvestmentFundsWithType(investmentFunds, investmentFundType);
             if (CollectionUtils.isEmpty(investmentFundsWithType)) {
                 continue;

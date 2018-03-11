@@ -78,7 +78,7 @@ public class InvestmentFundCalculatorTest {
     }
 
     @Test
-    public void shouldAllocateAllFundsForAggresiveStyle() {
+    public void shouldAllocateAllFundsForAggressiveStyle() {
         // given
         int totalAmountToAllocate = 10000;
         InvestmentStyle investmentStyle = InvestmentStyle.AGGRESSIVE;
